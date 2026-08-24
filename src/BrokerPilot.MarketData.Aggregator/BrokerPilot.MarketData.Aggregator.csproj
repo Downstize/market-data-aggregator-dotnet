@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="../BrokerPilot.MarketData.Application/BrokerPilot.MarketData.Application.csproj" />
+    <ProjectReference Include="../BrokerPilot.MarketData.Domain/BrokerPilot.MarketData.Domain.csproj" />
+    <ProjectReference Include="../BrokerPilot.MarketData.Infrastructure/BrokerPilot.MarketData.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+.idea/
+.vs/
+*.user
+*.suo
+TestResults/
+coverage/
+data/dead-letter/*.ndjson
+!data/dead-letter/.gitkeep
+.DS_Store

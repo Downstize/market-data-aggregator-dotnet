@@ -1,0 +1,93 @@
+name: brokerpilot-marketdata
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: marketdata
+      POSTGRES_USER: marketdata
+      POSTGRES_PASSWORD: marketdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marketdata -d marketdata"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+      start_period: 3s
+
+  exchange-alpha:
+    build:
+      context: .
+      dockerfile: src/Simulators/BrokerPilot.ExchangeSimulator.Alpha/Dockerfile
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      Simulation__TicksPerSecond: 250
+      Simulation__BurstIntervalMilliseconds: 20
+    ports:
+      - "7101:8080"
+
+  exchange-beta:
+    build:
+      context: .
+      dockerfile: src/Simulators/BrokerPilot.ExchangeSimulator.Beta/Dockerfile
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      Simulation__TicksPerSecond: 250
+      Simulation__BurstIntervalMilliseconds: 20
+    ports:
+      - "7102:8080"
+
+  exchange-gamma:
+    build:
+      context: .
+      dockerfile: src/Simulators/BrokerPilot.ExchangeSimulator.Gamma/Dockerfile
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      Simulation__TicksPerSecond: 250
+      Simulation__BurstIntervalMilliseconds: 20
+    ports:
+      - "7103:8080"
+
+  aggregator:
+    build:
+      context: .
+      dockerfile: src/BrokerPilot.MarketData.Aggregator/Dockerfile
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__MarketData: "Host=postgres;Port=5432;Database=marketdata;Username=marketdata;Password=marketdata;Timeout=2;Command Timeout=5;Maximum Pool Size=20;Max Auto Prepare=5;Auto Prepare Min Usages=3"
+      MarketData__DeadLetterDirectory: "/app/data/dead-letter"
+      MarketData__Sources__0__Name: "alpha"
+      MarketData__Sources__0__Format: "alpha-v1"
+      MarketData__Sources__0__Url: "ws://exchange-alpha:8080/ws"
+      MarketData__Sources__0__IdleTimeout: "00:00:05"
+      MarketData__Sources__1__Name: "beta"
+      MarketData__Sources__1__Format: "beta-v1"
+      MarketData__Sources__1__Url: "ws://exchange-beta:8080/ws"
+      MarketData__Sources__1__IdleTimeout: "00:00:05"
+      MarketData__Sources__2__Name: "gamma"
+      MarketData__Sources__2__Format: "gamma-v1"
+      MarketData__Sources__2__Url: "ws://exchange-gamma:8080/ws"
+      MarketData__Sources__2__IdleTimeout: "00:00:05"
+    ports:
+      - "7200:8080"
+    volumes:
+      - ./data/dead-letter:/app/data/dead-letter
+    depends_on:
+      postgres:
+        condition: service_healthy
+      exchange-alpha:
+        condition: service_started
+      exchange-beta:
+        condition: service_started
+      exchange-gamma:
+        condition: service_started
+    # Must exceed HostOptions.ShutdownTimeout (DrainTimeout 15s + ShutdownHeadroom 10s = 25s),
+    # otherwise Docker SIGKILLs the process in the middle of its own drain.
+    stop_grace_period: 35s
+
+volumes:
+  postgres-data:

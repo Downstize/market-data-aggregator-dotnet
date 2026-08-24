@@ -1,0 +1,29 @@
+### Aggregator metrics
+GET http://localhost:7200/metrics
+
+### Aggregator health
+GET http://localhost:7200/health
+
+### Alpha status
+GET http://localhost:7101/admin/status
+
+### Force Alpha disconnect. Aggregator must reconnect automatically.
+POST http://localhost:7101/admin/disconnect
+
+### Disable periodic duplicates on Alpha
+POST http://localhost:7101/admin/duplicates/false
+
+### Enable periodic duplicates on Alpha
+POST http://localhost:7101/admin/duplicates/true
+
+### Force Beta disconnect
+POST http://localhost:7102/admin/disconnect
+
+### Force Gamma disconnect
+POST http://localhost:7103/admin/disconnect
+
+### Pause Alpha without closing its current socket (tests aggregator idle timeout)
+POST http://localhost:7101/admin/pause/true
+
+### Resume Alpha
+POST http://localhost:7101/admin/pause/false

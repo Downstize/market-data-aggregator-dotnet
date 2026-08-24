@@ -1,0 +1,69 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.MarketData.Domain", "src\BrokerPilot.MarketData.Domain\BrokerPilot.MarketData.Domain.csproj", "{CE8ED31F-596B-42A6-973B-2F4D034A23D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.MarketData.Application", "src\BrokerPilot.MarketData.Application\BrokerPilot.MarketData.Application.csproj", "{9E99E3E4-66A2-4622-BD86-10D9AEA2BDC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.MarketData.Infrastructure", "src\BrokerPilot.MarketData.Infrastructure\BrokerPilot.MarketData.Infrastructure.csproj", "{B0CC78EC-BC41-409A-883C-DCA684484F6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.MarketData.Aggregator", "src\BrokerPilot.MarketData.Aggregator\BrokerPilot.MarketData.Aggregator.csproj", "{89C213AC-9BEC-455C-BCC8-21C7B1ACC49A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.ExchangeSimulator.Common", "src\Simulators\BrokerPilot.ExchangeSimulator.Common\BrokerPilot.ExchangeSimulator.Common.csproj", "{3E39275A-CAB5-475C-A03F-60660B4210D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.ExchangeSimulator.Alpha", "src\Simulators\BrokerPilot.ExchangeSimulator.Alpha\BrokerPilot.ExchangeSimulator.Alpha.csproj", "{13C6E5F3-5EA8-47D7-8854-6E5913EAF907}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.ExchangeSimulator.Beta", "src\Simulators\BrokerPilot.ExchangeSimulator.Beta\BrokerPilot.ExchangeSimulator.Beta.csproj", "{EADBC675-1ACC-4328-9D48-55F4505FF156}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.ExchangeSimulator.Gamma", "src\Simulators\BrokerPilot.ExchangeSimulator.Gamma\BrokerPilot.ExchangeSimulator.Gamma.csproj", "{B4CE62DB-7B6F-4BFD-BA3B-33CEC047E068}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerPilot.MarketData.Tests", "tests\BrokerPilot.MarketData.Tests\BrokerPilot.MarketData.Tests.csproj", "{5749ED54-FD5E-41AE-A34C-B195CACA1412}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE8ED31F-596B-42A6-973B-2F4D034A23D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8ED31F-596B-42A6-973B-2F4D034A23D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8ED31F-596B-42A6-973B-2F4D034A23D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8ED31F-596B-42A6-973B-2F4D034A23D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E99E3E4-66A2-4622-BD86-10D9AEA2BDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E99E3E4-66A2-4622-BD86-10D9AEA2BDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E99E3E4-66A2-4622-BD86-10D9AEA2BDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E99E3E4-66A2-4622-BD86-10D9AEA2BDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CC78EC-BC41-409A-883C-DCA684484F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CC78EC-BC41-409A-883C-DCA684484F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CC78EC-BC41-409A-883C-DCA684484F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CC78EC-BC41-409A-883C-DCA684484F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C213AC-9BEC-455C-BCC8-21C7B1ACC49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C213AC-9BEC-455C-BCC8-21C7B1ACC49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C213AC-9BEC-455C-BCC8-21C7B1ACC49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C213AC-9BEC-455C-BCC8-21C7B1ACC49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E39275A-CAB5-475C-A03F-60660B4210D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E39275A-CAB5-475C-A03F-60660B4210D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E39275A-CAB5-475C-A03F-60660B4210D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E39275A-CAB5-475C-A03F-60660B4210D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C6E5F3-5EA8-47D7-8854-6E5913EAF907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C6E5F3-5EA8-47D7-8854-6E5913EAF907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C6E5F3-5EA8-47D7-8854-6E5913EAF907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C6E5F3-5EA8-47D7-8854-6E5913EAF907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADBC675-1ACC-4328-9D48-55F4505FF156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADBC675-1ACC-4328-9D48-55F4505FF156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADBC675-1ACC-4328-9D48-55F4505FF156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADBC675-1ACC-4328-9D48-55F4505FF156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4CE62DB-7B6F-4BFD-BA3B-33CEC047E068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4CE62DB-7B6F-4BFD-BA3B-33CEC047E068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4CE62DB-7B6F-4BFD-BA3B-33CEC047E068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4CE62DB-7B6F-4BFD-BA3B-33CEC047E068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5749ED54-FD5E-41AE-A34C-B195CACA1412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5749ED54-FD5E-41AE-A34C-B195CACA1412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5749ED54-FD5E-41AE-A34C-B195CACA1412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5749ED54-FD5E-41AE-A34C-B195CACA1412}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
